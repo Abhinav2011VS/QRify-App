@@ -1,0 +1,38 @@
+{
+    "name": "qrify",
+    "version": "0.0.1",
+    "productName": "Qrify",
+    "description": "The most fastest and simplest QR Code generator",
+    "author": {
+        "email": "abhinav2011vs@gmail.com",
+        "name": "Abhinav VS",
+        "url": "https://qrify.pages.dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Abhinav2011VS/QRify-App.git"
+    },
+    "license": "All Rights Reserved",
+    "homepage": "https://qrify.pagse.dev",
+    "main": "main.js",
+    "icon": "icon.png",
+    "scripts": {
+        "start": "electron .",
+        "dist": "electron-builder build",
+        "dist:win": "npm run dist -- -w",
+        "dist:mac": "npm run dist -- -m",
+        "dist:linux": "npm run dist -- -l",
+        "lint": "eslint --config .eslintrc.json ."
+    },
+    "devDependencies": {
+        "electron": "^25.9.8",
+        "electron-builder": "^24.13.3"
+    },
+    "dependencies": {
+        "@electron/remote": "^2.1.2",
+        "electron-updater": "^6.1.8",
+        "es": "^0.8.0",
+        "eslint": "^9.16.0",
+        "fs-extra": "^11.2.0"
+    }
+}
