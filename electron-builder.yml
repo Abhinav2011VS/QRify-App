@@ -34,16 +34,18 @@ mac:
         - 'x64'
         - 'arm64'
   artifactName: 'QRify-installer-${version}-${arch}.${ext}'
-  category: 'public.app-category.qr'
+  category: 'public.app-category.utility'
 
 # Linux Configuration
 linux: 
-  target: 'AppImage'
+  target:
+    - 'AppImage'
+    - 'deb'
   maintainer: 'Abhinav VS'
   vendor: 'Abhinav VS'
   synopsis: 'QRify'
   description: 'The most fastest and simplest QR Code generator'
-  category: 'QR'
+  category: 'Utility'
 
 
 directories:
