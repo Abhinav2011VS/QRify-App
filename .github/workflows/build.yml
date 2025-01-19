@@ -38,7 +38,6 @@ jobs:
           name: built-files-${{ matrix.os }}  # Append OS to artifact name for uniqueness
           path: |
             dist/**/*.dmg
-            dist/**/*.exe
-            dist/**/*.msi
+            dist/*.exe
             dist/**/*.AppImage
             dist/**/*.deb

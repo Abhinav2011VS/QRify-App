@@ -13,6 +13,9 @@ files:
 extraResources:
   - 'libraries'
 
+# Icon Configuration
+icon: 'favicon.png'
+
 # Windows Configuration
 win: 
   target: 
