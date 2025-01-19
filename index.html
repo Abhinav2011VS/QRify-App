@@ -4,28 +4,23 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>QRify</title>
-        <style>
-            h1,
-            h3 {
-                color: green;
-            }
-            body,
-            header {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-        </style>
-
         <script src="qrcode.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="favicon.png">
     </head>
 
     <body>
-        <header>
-            <h1>QRify</h1>
-            <h3>QR Code Generator</h3>
-        </header>
+        <!-- Sidebar remains unchanged in the HTML -->
+        <div id="sidebar" class="sidebar">
+            <ul>
+                <li><img src="favicon.png"><p>Qrify</p></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </div>
+
+        <div id="title-bar" class="title-bar">
+            <p>QRify</p>
+        </div>
         <main>
             <form action="/" id="qr-generation-form">
                 <input type="text" name="qr-code-content" id="qr-content" value="" placeholder="Enter QR content" autocomplete="off" />
@@ -34,45 +29,49 @@
             <br />
             <div id="qr-code"></div>
         </main>
+
         <!-- Notification for updates -->
         <div id="notification" class="hidden">
             <p id="message"></p>
             <button id="close-button" onclick="closeNotification()">Close</button>
             <button id="restart-button" onclick="restartApp()" class="hidden">Restart</button>
         </div>
-    </body>
-    <script>
-        let qrContentInput = document.getElementById("qr-content");
-        let qrGenerationForm = document.getElementById("qr-generation-form");
-        let qrCode;
 
-        function generateQrCode(qrContent) {
-            return new QRCode("qr-code", {
-                text: qrContent,
-                width: 256,
-                height: 256,
-                colorDark: "#000000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H,
-            });
-        }
+        <script>
+            let qrContentInput = document.getElementById("qr-content");
+            let qrGenerationForm = document.getElementById("qr-generation-form");
+            let qrCode;
 
-        // Event listener for form submit event
-        qrGenerationForm.addEventListener("submit", function (event) {
-            // Prevent form submission
-            event.preventDefault();
-            let qrContent = qrContentInput.value;
-            if (qrCode == null) {
-                // Generate code initially
-                qrCode = generateQrCode(qrContent);
-            } else {
-                // If code already generated then make
-                // again using same object
-                qrCode.makeCode(qrContent);
+            function generateQrCode(qrContent) {
+                return new QRCode("qr-code", {
+                    text: qrContent,
+                    width: 256,
+                    height: 256,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H,
+                });
             }
-        });
-    </script>
 
-    <script src="script.js"></script>
-    <script src="notification.js"></script>
+            // Event listener for form submit event
+            qrGenerationForm.addEventListener("submit", function (event) {
+                // Prevent form submission
+                event.preventDefault();
+                let qrContent = qrContentInput.value;
+                if (qrCode == null) {
+                    // Generate code initially
+                    qrCode = generateQrCode(qrContent);
+                } else {
+                    // If code already generated then make
+                    // again using same object
+                    qrCode.makeCode(qrContent);
+                }
+            });
+
+            // Toggle sidebar visibility
+            function toggleSidebar() {
+                document.getElementById("sidebar").classList.toggle("active");
+            }
+        </script>
+    </body>
 </html>

@@ -12,10 +12,10 @@
         "type": "git",
         "url": "https://github.com/Abhinav2011VS/QRify-App.git"
     },
-    "license": "All Rights Reserved",
+    "license": "MIT",
     "homepage": "https://qrify.pagse.dev",
     "main": "main.js",
-    "icon": "icon.png",
+    "icon": "favicon.png",
     "scripts": {
         "start": "electron .",
         "dist": "electron-builder build",

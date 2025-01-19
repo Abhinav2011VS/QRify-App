@@ -1,0 +1,51 @@
+appId: 'qrify'
+productName: 'QRify'
+artifactName: 'QRify-installer-${version}.${ext}'
+
+copyright: 'Copyright © 2024 Abhinav VS'
+
+asar: true
+compression: 'maximum'
+
+files:
+  - '!{dist,.gitignore,.vscode}'
+
+extraResources:
+  - 'libraries'
+
+# Windows Configuration
+win: 
+  target: 
+    - target: 'nsis'
+      arch: 'x64'
+
+# Windows Installer Configuration
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+
+# macOS Configuration
+mac:
+  target:
+    - target: 'dmg'
+      arch:
+        - 'x64'
+        - 'arm64'
+  artifactName: 'QRify-installer-${version}-${arch}.${ext}'
+  category: 'public.app-category.qr'
+
+# Linux Configuration
+linux: 
+  target: 'AppImage'
+  maintainer: 'Abhinav VS'
+  vendor: 'Abhinav VS'
+  synopsis: 'QRify'
+  description: 'The most fastest and simplest QR Code generator'
+  category: 'QR'
+
+
+directories:
+  buildResources: 'build'
+  output: 'dist'
